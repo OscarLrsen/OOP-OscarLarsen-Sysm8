@@ -23,5 +23,40 @@ namespace Fitrack
         {
             InitializeComponent();
         }
+
+        private void TogglePasswordVisibilty(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextHolder.FontSize = 10;
+            TextHolder.Margin = new Thickness(5, -15, 35, 0);
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextHolder.Text))
+            {
+                TextHolder.FontSize = 14;
+                TextHolder.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
+
+        private void EmailHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            EmailPlacer.FontSize = 10;
+            EmailPlacer.Margin = new Thickness(5, -15, 35, 0);
+        }
+
+        private void EmailHolder_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextHolder.Text))
+            {
+                EmailPlacer.FontSize = 14;
+                EmailPlacer.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
     }
 }

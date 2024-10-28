@@ -23,7 +23,9 @@ namespace Fitrack
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Register_Window register_Window = new Register_Window();
+            register_Window.Show();
+            this.Close();
         }
     }
 }

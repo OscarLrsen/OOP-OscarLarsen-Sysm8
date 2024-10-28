@@ -8,7 +8,7 @@
         Title="Register_Window" Height="450" Width="800">
     <Grid Background="#D3D3D3">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
@@ -23,18 +23,34 @@
             <TextBlock Text="Log in to personalize your workouts, track" HorizontalAlignment="Center" FontFamily="Arial"/>
             <TextBlock Text=" your progress, save favorite routines, and stay" HorizontalAlignment="Center" FontFamily="Arial"/>
             <TextBlock Text="motivated on your fitness journey with FitTrack." HorizontalAlignment="Center" FontFamily="Arial"/>
-            <TextBox Text="Email adress*" Background="Transparent" Margin="10" Height="30" FontFamily="Arial"/>
-            <Grid Margin="10" Height="30">
-                <TextBox Text="Password*" Background="Transparent" FontFamily="Arial"/>
-                <PasswordBox Background="Transparent" FontFamily="Arial" VerticalAlignment="Center" BorderBrush="Transparent"/>
+
+            <!--Email Fält-->
+            <Grid Margin="10" Height="30" Width="245" >
+                <Rectangle Height="30" Width="245" Stroke="Black"/>
+                <TextBlock x:Name="EmailPlacer" Text=" Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         GotFocus="EmailHolder_GotFocus" LostFocus="EmailHolder_LostFocus"/>
+            </Grid>
+
+            <!--Lösenord Fält-->
+            <Grid Margin="10" Height="30" Width="245" >
+                <Rectangle Height="30" Width="245" Stroke="Black"/>
+                <TextBlock x:Name="TextHolder" Text=" Password*" FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+
+                <PasswordBox x:Name="PasswordHolder" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                             BorderBrush="Transparent" BorderThickness="0" 
+                             GotFocus="PasswordBox_GotFocus" LostFocus="PasswordBox_LostFocus"/>
+
                 <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
-                        BorderBrush="Transparent"/>
+                        BorderBrush="Transparent" Click="TogglePasswordVisibilty" Margin="5"/>
             </Grid>
 
             <Button Width="110" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <TextBlock Text="Forgot Password?" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
+                        <TextBlock Text="Forgot Password?" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                   Foreground="Black" FontFamily="Arial">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextDecorations" Value="Baseline"/>
@@ -52,7 +68,7 @@
                 </Button.Template>
             </Button>
 
-            <Button Width="180" Height="30" Margin="5" Background="Black" BorderBrush="Black" Cursor="Hand" FontFamily="Arial">
+            <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" 
@@ -83,8 +99,8 @@
             </Button>
         </StackPanel>
 
-        <Border Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Margin="-9,35,261,10"/>
+        <Border Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="160">
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="136" Width="267"/>
         </Border>
     </Grid>
 </Window>
