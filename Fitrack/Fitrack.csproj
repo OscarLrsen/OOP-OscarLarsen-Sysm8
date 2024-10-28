@@ -9,11 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\Fittrack_LOGO-removebg-preview.png" />
     <None Remove="Bilder\Screenshot_24-10-2024_105657_looka.com-removebg-preview %281%29.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="Bilder\Screenshot_24-10-2024_105657_looka.com-removebg-preview (1).png" />
+    <SplashScreen Include="Bilder\Fittrack_LOGO-removebg-preview.png" />
   </ItemGroup>
 
 </Project>

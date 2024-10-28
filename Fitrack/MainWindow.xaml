@@ -21,8 +21,7 @@
 
         <!--Grid 0 med Fittrack logo-->
         <Border Background="#D3D3D3" Grid.Row="0">
-            <Image Margin="-56,-80,400,-79" Source="/Bilder/Screenshot_24-10-2024_105657_looka.com-removebg-preview (1).png" 
-                   Stretch="Fill"/>
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" HorizontalAlignment="Center" Margin="0,-57,0,6" Width="282" />
         </Border>
         <!--Info Border-->
         <Border Background="#DC143C" Grid.Row="1"/>
@@ -44,14 +43,14 @@
             <TextBlock Text="-OSCAR L." HorizontalAlignment="Center" Height="20" 
                        FontStyle="Italic" Foreground="Black" TextWrapping="Wrap"/>
         </Border>
-        
+
         <!--StackPanel för log in och Sign in knapp-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
             <!--Login in knapp-->
             <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="Button_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <TextBlock Text="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black">
+                        <TextBlock Text="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="FontWeight" Value="Normal"/>
@@ -71,7 +70,7 @@
             <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <TextBlock Text="Sign In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black">
+                        <TextBlock Text="Sign In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextDecorations" Value="None"/>
