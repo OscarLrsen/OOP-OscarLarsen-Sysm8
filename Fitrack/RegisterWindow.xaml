@@ -1,0 +1,107 @@
+﻿<Window x:Class="Fitrack.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fitrack"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="600" Width="800">
+    <Grid Background="#D3D3D3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="115" Width="265" Grid.Column="1"/>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="One account, across all apps, just to make things" HorizontalAlignment="Center" FontFamily="Arial"/>
+            <TextBlock Text=" a little easier." HorizontalAlignment="Center" FontFamily="Arial"/>
+
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text=" Last Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <ComboBox/>
+                    <TextBlock Text=" Country"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                </Grid>
+            </Border>
+
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="164*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2,0,2,0" Grid.ColumnSpan="2"/>
+                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2,0,2,2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Grid.ColumnSpan="2"/>
+                </Grid>
+            </Border>
+
+            <Border Margin="10" Height="80" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                        <TextBlock Text="Your password must contain:"  FontFamily="Arial" VerticalAlignment="Top" Margin="2"/>
+                        <TextBlock Text="At least 8 characters"  FontFamily="Arial" VerticalAlignment="Top" Margin="2"/>
+                        <TextBlock Text="Numbers(0-9)"  FontFamily="Arial" VerticalAlignment="Top" Margin="2"/>
+                        <TextBlock Text="Special characters (e.g. !@#$%)"  FontFamily="Arial" VerticalAlignment="Top" Margin="2"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
+        Click="RegisterBTN">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" 
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <TextBlock Text="CREATE ACCOUNT" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                       Foreground="White" FontFamily="Arial">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextDecorations" Value="None"/>
+                                        <Setter Property="FontWeight" Value="Normal"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

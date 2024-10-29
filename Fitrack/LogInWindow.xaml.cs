@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Fitrack
 {
     /// <summary>
-    /// Interaction logic for Register_Window.xaml
+    /// Interaction logic for LogInWindow.xaml
     /// </summary>
-    public partial class Register_Window : Window
+    public partial class LogInWindow : Window
     {
-        public Register_Window()
+        public LogInWindow()
         {
             InitializeComponent();
-        }
-
-        private void TogglePasswordVisibilty(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
@@ -57,6 +52,29 @@ namespace Fitrack
                 EmailPlacer.FontSize = 14;
                 EmailPlacer.Margin = new Thickness(5, 0, 35, 0);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordHolder.Visibility == Visibility.Visible)
+            {
+                // Visa TextBox och kopiera lösenordet till den
+                VisiblePasswordBox.Text = PasswordHolder.Password;
+                PasswordHolder.Visibility = Visibility.Collapsed;
+                VisiblePasswordBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Visa PasswordBox och kopiera tillbaka lösenordet till den
+                PasswordHolder.Password = VisiblePasswordBox.Text;
+                VisiblePasswordBox.Visibility = Visibility.Collapsed;
+                PasswordHolder.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void LogInBTN(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
