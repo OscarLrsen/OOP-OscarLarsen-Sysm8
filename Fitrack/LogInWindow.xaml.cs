@@ -29,6 +29,8 @@ namespace Fitrack
         {
             TextHolder.FontSize = 10;
             TextHolder.Margin = new Thickness(5, -15, 35, 0);
+            ErrorPassword.Visibility = Visibility.Hidden;
+
         }
 
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
@@ -44,6 +46,8 @@ namespace Fitrack
         {
             EmailPlacer.FontSize = 10;
             EmailPlacer.Margin = new Thickness(5, -15, 35, 0);
+            ErrorEmail.Visibility = Visibility.Hidden;
+
         }
 
         private void EmailHolder_LostFocus(object sender, RoutedEventArgs e)

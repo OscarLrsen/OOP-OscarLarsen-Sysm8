@@ -33,9 +33,10 @@
                     <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
                          GotFocus="EmailHolder_GotFocus" LostFocus="EmailHolder_LostFocus"/>
-                    
-                    <TextBlock x:Name="ErrorEmail" Text="Invalid Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
-                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden"/>
+
+                    <TextBlock x:Name="ErrorEmail" Text="Invalid Email Adress*" Visibility="Hidden" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="96,0,0,0" IsHitTestVisible="False" Background="Crimson" 
+                               HorizontalAlignment="Left" Width="120" />
 
                 </Grid>
             </Border>
@@ -58,36 +59,15 @@
                              Margin="2" BorderBrush="Transparent" BorderThickness="0" 
                              Visibility="Collapsed" IsReadOnly="True"/>
 
-                    <TextBlock x:Name="ErrorPassword" Text="Wrong Password*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
-                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden"/>
+                    <TextBlock x:Name="ErrorPassword" Text="Wrong Password*"  FontFamily="Arial" VerticalAlignment="Center"
+                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden" HorizontalAlignment="Center"
+                               Width="100" Margin="96,0,0,0"/>
 
                     <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
                     <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
                             VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
                 </Grid>
             </Border>
-
-            <Button Width="110" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <TextBlock Text="Forgot Password?" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                   Foreground="Black" FontFamily="Arial">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="TextDecorations" Value="Baseline"/>
-                                    <Setter Property="FontWeight" Value="Bold"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="Button.IsMouseOver" Value="True">
-                                            <Setter Property="TextDecorations" Value="Underline"/>
-                                            <Setter Property="FontWeight" Value="Bold"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
 
             <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
                     Click="LogInBTN">
@@ -142,7 +122,7 @@
                         </TextBlock>
                     </ControlTemplate>
                 </Button.Template>
-            </Button>            
+            </Button>
 
 
         </StackPanel>
