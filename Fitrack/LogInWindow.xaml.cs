@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fitrack.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,9 +33,9 @@ namespace Fitrack
 
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextHolder.Text))
+            if (string.IsNullOrEmpty(PasswordHolder.Password))
             {
-                TextHolder.FontSize = 14;
+                TextHolder.FontSize = 12;
                 TextHolder.Margin = new Thickness(5, 0, 35, 0);
             }
         }
@@ -47,9 +48,9 @@ namespace Fitrack
 
         private void EmailHolder_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextHolder.Text))
+            if (string.IsNullOrEmpty(EmailHolder.Text))
             {
-                EmailPlacer.FontSize = 14;
+                EmailPlacer.FontSize = 12;
                 EmailPlacer.Margin = new Thickness(5, 0, 35, 0);
             }
         }
@@ -74,8 +75,25 @@ namespace Fitrack
 
         private void LogInBTN(object sender, RoutedEventArgs e)
         {
+            string email = EmailHolder.Text;
+            string password = PasswordHolder.Password;
 
+            Fitrack.Class.Admin admin = new Fitrack.Class.Admin();
+            User user = admin.Authenticate(email, password);
+
+            if (user != null && user.Admin) 
+            {
+                Workouts_Window workouts_Window = new Workouts_Window();
+                workouts_Window.Show();
+                this.Close();
+            }
+            else
+            {
+                ErrorEmail.Visibility = Visibility.Visible;
+                ErrorPassword.Visibility = Visibility.Visible;
+            }
         }
+
 
         private void SignUpClick(object sender, RoutedEventArgs e)
         {

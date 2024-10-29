@@ -26,26 +26,32 @@
 
             <!--First Name-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
                 <Grid>
-                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
-                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
-                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                    <TextBlock x:Name="FirstNamePlacer" Text=" First Name*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="FirstName" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         GotFocus="FirstName_GotFocus" LostFocus="FirstName_LostFocus"/>
                 </Grid>
             </Border>
             
             <!--LastName-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
                 <Grid>
-                    <TextBlock Text=" Last Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
-                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
-                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                    <TextBlock x:Name="LastNamePlacer" Text=" Last Name*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="LastName" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         GotFocus="LastName_GotFocus" LostFocus="LastName_LostFocus"/>
                 </Grid>
             </Border>
 
             <!--ComboBox Country-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <ComboBox FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
+                    <ComboBox x:Name="CounrtyBox" FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
                         <ComboBoxItem Content="Sverige"/>
                         <ComboBoxItem Content="Danmark"/>
                         <ComboBoxItem Content="Norge"/>
@@ -57,21 +63,34 @@
 
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
-                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
-                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                    <TextBlock x:Name="EmailPlacer" Text=" Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="Email" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         GotFocus="Email_GotFocus" LostFocus="Email_LostFocus"/>
                 </Grid>
             </Border>
 
+            <!--Lösenord Fält-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="79*"/>
-                        <ColumnDefinition Width="164*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2,0,2,0" Grid.ColumnSpan="2"/>
-                    <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2,0,2,2"
-                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Grid.ColumnSpan="2"/>
+                    <!--TextBlock som flytande etikett-->
+                    <TextBlock x:Name="TextHolder" Text=" Password*" FontFamily="Arial" VerticalAlignment="Center" 
+                   Foreground="Black" IsHitTestVisible="False"/>
+
+                    <!--PasswordBox för gömt lösenord-->
+                    <PasswordBox x:Name="PasswordHolder" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                                 Margin="2" BorderBrush="Transparent" BorderThickness="0"
+                                 GotFocus="PasswordBox_GotFocus" LostFocus="PasswordBox_LostFocus" PasswordChar="●"/>
+
+                    <!--TextBox för visa lösenord-->
+                    <TextBox x:Name="VisiblePasswordBox" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                             Margin="2" BorderBrush="Transparent" BorderThickness="0" Visibility="Collapsed" IsReadOnly="True"/>
+
+                    <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
+                    <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
+                            VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
                 </Grid>
             </Border>
 

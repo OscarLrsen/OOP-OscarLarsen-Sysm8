@@ -40,5 +40,84 @@ namespace Fitrack
             mainWindow.Show();
             this.Close();
         }
+
+        private void FirstName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(FirstName.Text))
+            {
+                FirstNamePlacer.FontSize = 12;
+                FirstNamePlacer.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
+
+        private void FirstName_GotFocus(object sender, RoutedEventArgs e)
+
+        {
+            FirstNamePlacer.FontSize = 10;
+            FirstNamePlacer.Margin = new Thickness(5, -15, 35, 0);
+            
+        }
+
+        private void LastName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(LastName.Text))
+            {
+                LastNamePlacer.FontSize = 12;
+                LastNamePlacer.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
+
+        private void LastName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            LastNamePlacer.FontSize = 10;
+            LastNamePlacer.Margin = new Thickness(5, -15, 35, 0);
+
+        }
+
+        private void Email_GotFocus(object sender, RoutedEventArgs e)
+        {
+            EmailPlacer.FontSize = 10;
+            EmailPlacer.Margin = new Thickness(5, -15, 35, 0);
+        }
+
+        private void Email_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Email.Text)) 
+            {
+                EmailPlacer.FontSize = 12;
+                EmailPlacer.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextHolder.FontSize = 10;
+            TextHolder.Margin = new Thickness(5, -15, 35, 0);
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(PasswordHolder.Password))
+            {
+                TextHolder.FontSize = 12;
+                TextHolder.Margin = new Thickness(5, 0, 35, 0);
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordHolder.Visibility == Visibility.Visible)
+            {
+                // Visa TextBox och kopiera lösenordet till den
+                VisiblePasswordBox.Text = PasswordHolder.Password;
+                PasswordHolder.Visibility = Visibility.Collapsed;
+                VisiblePasswordBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Visa PasswordBox och kopiera tillbaka lösenordet till den
+                PasswordHolder.Password = VisiblePasswordBox.Text;
+                VisiblePasswordBox.Visibility = Visibility.Collapsed;
+                PasswordHolder.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

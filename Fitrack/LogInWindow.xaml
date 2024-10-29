@@ -33,6 +33,10 @@
                     <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
                          GotFocus="EmailHolder_GotFocus" LostFocus="EmailHolder_LostFocus"/>
+                    
+                    <TextBlock x:Name="ErrorEmail" Text="Invalid Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden"/>
+
                 </Grid>
             </Border>
 
@@ -51,12 +55,15 @@
 
                     <!--TextBox för visa lösenord-->
                     <TextBox x:Name="VisiblePasswordBox" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
-             Margin="2" BorderBrush="Transparent" BorderThickness="0" 
-             Visibility="Collapsed" IsReadOnly="True"/>
+                             Margin="2" BorderBrush="Transparent" BorderThickness="0" 
+                             Visibility="Collapsed" IsReadOnly="True"/>
+
+                    <TextBlock x:Name="ErrorPassword" Text="Wrong Password*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden"/>
 
                     <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
                     <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
-            VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
+                            VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
                 </Grid>
             </Border>
 
