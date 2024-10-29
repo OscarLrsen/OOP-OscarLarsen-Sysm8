@@ -67,7 +67,8 @@
                 </Button.Template>
             </Button>
             <!--Sign in knapp-->
-            <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
+            <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" 
+                    Cursor="Hand" Click="RegisterWindow">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <TextBlock Text="Sign In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">

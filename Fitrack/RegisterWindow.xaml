@@ -17,37 +17,47 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="115" Width="265" Grid.Column="1"/>
+        <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="115" Width="265" Grid.Column="1"
+               MouseDown="Image_MouseDown" Cursor="Hand"/>
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock Text="One account, across all apps, just to make things" HorizontalAlignment="Center" FontFamily="Arial"/>
             <TextBlock Text=" a little easier." HorizontalAlignment="Center" FontFamily="Arial"/>
 
+            <!--First Name-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
                     <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
                 </Grid>
             </Border>
+            
+            <!--LastName-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Text=" Last Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Text=" Last Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
                     <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
                 </Grid>
             </Border>
 
+            <!--ComboBox Country-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <ComboBox/>
-                    <TextBlock Text=" Country"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <ComboBox FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
+                        <ComboBoxItem Content="Sverige"/>
+                        <ComboBoxItem Content="Danmark"/>
+                        <ComboBoxItem Content="Norge"/>
+                    </ComboBox>
+                    <TextBlock Text=" Country"  FontFamily="Arial" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               Margin="2" Width="50" IsHitTestVisible="False"/>
                 </Grid>
             </Border>
 
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Text=" First Name"  FontFamily="Arial" VerticalAlignment="Center" Margin="2" IsHitTestVisible="False"/>
                     <TextBox FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
                 </Grid>

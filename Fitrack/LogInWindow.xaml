@@ -25,36 +25,40 @@
             <TextBlock Text="motivated on your fitness journey with FitTrack." HorizontalAlignment="Center" FontFamily="Arial"/>
 
             <!--Email Fält-->
-            <Grid Margin="10" Height="30" Width="245" >
-                <Rectangle Height="30" Width="245" Stroke="Black"/>
-                <TextBlock x:Name="EmailPlacer" Text=" Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"/>
-                <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
+                <Grid>
+                    <TextBlock x:Name="EmailPlacer" Text=" Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
                          GotFocus="EmailHolder_GotFocus" LostFocus="EmailHolder_LostFocus"/>
-            </Grid>
+                </Grid>
+            </Border>
 
             <!--Lösenord Fält-->
-            <Grid Margin="10" Height="30" Width="245">
-                <!-- Bakgrundsrektangel -->
-                <Rectangle Height="30" Width="245" Stroke="Black"/>
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
 
-                <!--TextBlock som flytande etikett-->
-                <TextBlock x:Name="TextHolder" Text=" Password*" FontFamily="Arial" VerticalAlignment="Center" Foreground="Black"/>
+                <Grid>
+                    <!--TextBlock som flytande etikett-->
+                    <TextBlock x:Name="TextHolder" Text=" Password*" FontFamily="Arial" VerticalAlignment="Center" 
+                               Foreground="Black" IsHitTestVisible="False"/>
 
-                <!--PasswordBox för gömt lösenord-->
-                <PasswordBox x:Name="PasswordHolder" Background="Transparent" FontFamily="Arial" VerticalAlignment="Center" 
-                 Margin="10,0,35,0" BorderBrush="Transparent" BorderThickness="0"
+                    <!--PasswordBox för gömt lösenord-->
+                    <PasswordBox x:Name="PasswordHolder" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                 Margin="2" BorderBrush="Transparent" BorderThickness="0"
                  GotFocus="PasswordBox_GotFocus" LostFocus="PasswordBox_LostFocus" PasswordChar="●"/>
 
-                <!--TextBox för visa lösenord-->
-                <TextBox x:Name="VisiblePasswordBox" Background="Transparent" FontFamily="Arial" VerticalAlignment="Center" 
-             Margin="10,0,35,0" BorderBrush="Transparent" BorderThickness="0" 
+                    <!--TextBox för visa lösenord-->
+                    <TextBox x:Name="VisiblePasswordBox" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+             Margin="2" BorderBrush="Transparent" BorderThickness="0" 
              Visibility="Collapsed" IsReadOnly="True"/>
 
-                <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
-                <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
+                    <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
+                    <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
             VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
-            </Grid>
+                </Grid>
+            </Border>
 
             <Button Width="110" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
                 <Button.Template>
@@ -110,7 +114,8 @@
             </Button>
             <!--Text -->
             <TextBlock Text="Don't have an account?" HorizontalAlignment="Center" FontFamily="Arial" />
-            <Button Width="110" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
+            <Button Width="110" Height="25" Margin="5" Background="Transparent" 
+                    Click="SignUpClick" BorderBrush="Transparent" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <TextBlock Text="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -135,8 +140,9 @@
 
         </StackPanel>
 
-        <Border Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="160">
-            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="136" Width="267"/>
+        <Border Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" >
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="136" Width="267" MouseDown="ImageMainWindow"
+                   Cursor="Hand"/>
         </Border>
     </Grid>
 </Window>

@@ -27,5 +27,12 @@ namespace Fitrack
             logInWindow.Show();
             this.Close();
         }
+
+        private void RegisterWindow(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
+        }
     }
 }
