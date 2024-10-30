@@ -45,9 +45,9 @@
         </Border>
 
         <!--StackPanel för log in och Sign in knapp-->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+        <StackPanel x:Name="StackPanelLogIn" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
             <!--Login in knapp-->
-            <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="Button_Click">
+            <Button x:Name="LogInButton"  Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="Button_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <TextBlock Text="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
@@ -67,11 +67,35 @@
                 </Button.Template>
             </Button>
             <!--Sign in knapp-->
-            <Button Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" 
+            <Button x:Name="SignInButton" Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" 
                     Cursor="Hand" Click="RegisterWindow">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <TextBlock Text="Sign In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextDecorations" Value="None"/>
+                                    <Setter Property="FontWeight" Value="Normal"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Button.IsMouseOver" Value="True">
+                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <Button x:Name="UserNameButton" Width="150" Height="25" Margin="5" Background="Transparent" 
+                    BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Cursor="Hand" Click="UserName_Click">
+            <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextDecorations" Value="None"/>

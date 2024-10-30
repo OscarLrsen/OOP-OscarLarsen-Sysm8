@@ -15,7 +15,7 @@ namespace Fitrack.Class
         {
             users = new List<User>
             {
-                new User("Oscar.larsen@edu.newton.com", "OscarLarsen1!", true)
+                new User("admin", "“password", true)
             };
 
         }

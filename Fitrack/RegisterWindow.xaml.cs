@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,82 @@ namespace Fitrack
 
         private void RegisterBTN(object sender, RoutedEventArgs e)
         {
+            string firstName = FirstName.Text;
+            string lastName = LastName.Text;
+            string countryBox = (CountryBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string email = Email.Text;
+            string password = PasswordHolder.Password;
 
+            if (ValidateInput(firstName, lastName, countryBox, email, password))
+            {
+                User newUser = new User(email, password) { FirstName = firstName, LastName = lastName, CountryBox = countryBox };
+
+                MainWindow mainWindow = new MainWindow(newUser);
+                mainWindow.Show();
+                this.Close();
+
+            }
+        }
+        private bool ValidateInput(string firstName, string lastName, string country, string email, string password)
+        {
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(firstName))
+            {
+                ErrorName.Visibility = Visibility.Visible;
+                isValid = false;
+            }
+            else
+            {
+                ErrorName.Visibility = Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                ErrorLastName.Visibility = Visibility.Visible;
+                isValid = false;
+            }
+            else
+            {
+                ErrorLastName.Visibility = Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(country))
+            {
+                ErrorComboBox.Visibility = Visibility.Visible;
+                isValid = false;
+            }
+            else
+            {
+                ErrorComboBox.Visibility = Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            {
+                ErrorEmail.Visibility = Visibility.Visible;
+                isValid = false;
+            }
+            else
+            {
+                ErrorEmail.Visibility = Visibility.Hidden;
+            }
+
+            if (password.Length < 8 || !password.Any(char.IsDigit) || !password.Any(char.IsPunctuation))
+            {
+                ErrorBorder.Visibility = Visibility.Visible;
+                isValid = false;
+            }
+            else
+            {
+                ErrorBorder.Visibility = Visibility.Hidden;
+            }
+
+            return isValid;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+            private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

@@ -14,11 +14,39 @@ namespace Fitrack
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+
+        private User loggedInUser;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(User user)
+        {
+            InitializeComponent();
+            loggedInUser = user;
+            UpdateUserInfo();
+
+        }
+
+        private void UpdateUserInfo()
+        {
+            if (loggedInUser != null)
+            {
+                // Sätt för- och efternamnet som knapptext eller annan plats i gränssnittet
+                UserNameButton.Content = $"{loggedInUser.FirstName} {loggedInUser.LastName}";
+
+                // Dölj Log In och Sign In-knapparna om de visas
+                LogInButton.Visibility = Visibility.Collapsed;
+                SignInButton.Visibility = Visibility.Collapsed;
+
+                // Visa användarens information i gränssnittet
+                UserNameButton.Visibility = Visibility.Visible;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,5 +62,11 @@ namespace Fitrack
             registerWindow.Show();
             this.Close();
         }
+
+        private void UserName_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

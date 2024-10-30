@@ -33,6 +33,9 @@
                     <TextBox x:Name="FirstName" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
                          GotFocus="FirstName_GotFocus" LostFocus="FirstName_LostFocus"/>
+                    <TextBlock x:Name="ErrorName" Text="Fill in Name!" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="120,0,0,0" IsHitTestVisible="False" Background="Crimson" Visibility="Hidden"
+                               HorizontalAlignment="Left" />
                 </Grid>
             </Border>
             
@@ -45,19 +48,25 @@
                     <TextBox x:Name="LastName" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
                          GotFocus="LastName_GotFocus" LostFocus="LastName_LostFocus"/>
+                    <TextBlock x:Name="ErrorLastName" Text="Fill in Last Name!" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="120,0,0,0" IsHitTestVisible="False" Background="Crimson" 
+                               HorizontalAlignment="Left" Visibility="Hidden"/>
                 </Grid>
             </Border>
 
             <!--ComboBox Country-->
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <ComboBox x:Name="CounrtyBox" FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
+                    <ComboBox x:Name="CountryBox" FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
                         <ComboBoxItem Content="Sverige"/>
                         <ComboBoxItem Content="Danmark"/>
                         <ComboBoxItem Content="Norge"/>
                     </ComboBox>
                     <TextBlock Text=" Country"  FontFamily="Arial" HorizontalAlignment="Left" VerticalAlignment="Center" 
                                Margin="2" Width="50" IsHitTestVisible="False"/>
+                    <TextBlock x:Name="ErrorComboBox" Text="Choose Country!" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="120,0,0,0" IsHitTestVisible="False" Background="Crimson" 
+                               HorizontalAlignment="Left" Visibility="Hidden" />
                 </Grid>
             </Border>
 
@@ -67,7 +76,10 @@
                                IsHitTestVisible="False"/>
                     <TextBox x:Name="Email" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
-                         GotFocus="Email_GotFocus" LostFocus="Email_LostFocus"/>
+                         GotFocus="Email_GotFocus" LostFocus="Email_LostFocus" />
+                    <TextBlock x:Name="ErrorEmail" Text="Email Already used!" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="120,0,0,0" IsHitTestVisible="False" Background="Crimson" 
+                               HorizontalAlignment="Left" Visibility="Hidden"/>
                 </Grid>
             </Border>
 
@@ -104,6 +116,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            
 
 
             <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
@@ -132,5 +145,8 @@
                 </Button.Template>
             </Button>
         </StackPanel>
+
+        <Border Name="ErrorBorder"  Grid.Row="1" Grid.Column="1" Height="80" Width="245" BorderBrush="Crimson" 
+                BorderThickness="2" Margin="11,288,10,110" Visibility="Hidden"/>
     </Grid>
 </Window>
