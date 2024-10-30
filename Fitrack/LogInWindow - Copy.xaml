@@ -1,0 +1,135 @@
+﻿<Window x:Class="Fitrack.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fitrack"
+        mc:Ignorable="d"
+        Title="LogInWindow" Height="450" Width="800">
+    <Grid Background="#D3D3D3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" Height="260" VerticalAlignment="Top">
+            <TextBlock Text="Log in to personalize your workouts, track" HorizontalAlignment="Center" FontFamily="Arial"/>
+            <TextBlock Text=" your progress, save favorite routines, and stay" HorizontalAlignment="Center" FontFamily="Arial"/>
+            <TextBlock Text="motivated on your fitness journey with FitTrack." HorizontalAlignment="Center" FontFamily="Arial"/>
+
+            <!--Email Fält-->
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
+                <Grid>
+                    <TextBlock x:Name="EmailPlacer" Text=" UserName*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="EmailHolder" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         GotFocus="EmailHolder_GotFocus" LostFocus="EmailHolder_LostFocus"/>
+
+                    <TextBlock x:Name="ErrorEmail" Text="Invalid Email Adress*" Visibility="Hidden" FontFamily="Arial" VerticalAlignment="Center" 
+                               Margin="96,0,0,0" IsHitTestVisible="False" Background="Crimson" 
+                               HorizontalAlignment="Left" Width="120" />
+
+                </Grid>
+            </Border>
+
+            <!--Lösenord Fält-->
+            <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+
+                <Grid>
+                    <!--TextBlock som flytande etikett-->
+                    <TextBlock x:Name="TextHolder" Text=" Password*" FontFamily="Arial" VerticalAlignment="Center" 
+                               Foreground="Black" IsHitTestVisible="False"/>
+
+                    <!--PasswordBox för gömt lösenord-->
+                    <PasswordBox x:Name="PasswordHolder" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                 Margin="2" BorderBrush="Transparent" BorderThickness="0"
+                 GotFocus="PasswordBox_GotFocus" LostFocus="PasswordBox_LostFocus" PasswordChar="●"/>
+
+                    <!--TextBox för visa lösenord-->
+                    <TextBox x:Name="VisiblePasswordBox" Background="Transparent" FontFamily="Arial" VerticalAlignment="Bottom" 
+                             Margin="2" BorderBrush="Transparent" BorderThickness="0" 
+                             Visibility="Collapsed" IsReadOnly="True"/>
+
+                    <TextBlock x:Name="ErrorPassword" Text="Wrong Password*"  FontFamily="Arial" VerticalAlignment="Center"
+                               IsHitTestVisible="False" Background="Crimson" Visibility="Hidden" HorizontalAlignment="Center"
+                               Width="100" Margin="96,0,0,0"/>
+
+                    <!-- Öga-knapp för att växla mellan synligt och dolt lösenord -->
+                    <Button Content="👁" Background="Transparent" Width="20" Height="20" HorizontalAlignment="Right" 
+                            VerticalAlignment="Center" BorderBrush="Transparent" Click="Button_Click" Margin="5"/>
+                </Grid>
+            </Border>
+
+            <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
+                    Click="LogInBTN">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    CornerRadius="15" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1">
+                            <TextBlock Text="LOG IN" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White" 
+                           FontFamily="Arial">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextDecorations" Value="None"/>
+                                        <Setter Property="FontWeight" Value="Normal"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Text -->
+            <TextBlock Text="Don't have an account?" HorizontalAlignment="Center" FontFamily="Arial" />
+            <Button Width="110" Height="25" Margin="5" Background="Transparent" 
+                    Click="SignUpClick" BorderBrush="Transparent" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                   Foreground="Black" FontFamily="Arial">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextDecorations" Value="Baseline"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Button.IsMouseOver" Value="True">
+                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" >
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="136" Width="267" MouseDown="ImageMainWindow"
+                   Cursor="Hand"/>
+        </Border>
+    </Grid>
+</Window>
