@@ -90,29 +90,12 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-            <Button x:Name="UserNameButton" Width="150" Height="25" Margin="5" Background="Transparent" 
+            <Button x:Name="UserNameButton"  Width="150" Height="25" Margin="5" Background="Transparent" 
                     BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" 
-                    Cursor="Hand" Click="UserName_Click">
-            <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="TextDecorations" Value="None"/>
-                                    <Setter Property="FontWeight" Value="Normal"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="Button.IsMouseOver" Value="True">
-                                            <Setter Property="TextDecorations" Value="Underline"/>
-                                            <Setter Property="FontWeight" Value="Bold"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </ControlTemplate>
-                </Button.Template>
+                    Cursor="Hand" Visibility="Hidden" Click="UserName_Click">
+                <TextBlock Text="{Binding Content, ElementName=UserNameButton}" FontFamily="Arial"/>
             </Button>
-        </StackPanel>
+            </StackPanel>
 
 
     </Grid>

@@ -25,6 +25,13 @@
         </Border>
         <!--Info Border-->
         <Border Background="#DC143C" Grid.Row="1"/>
+        
+        <!--Användare info-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="{Binding UserName}" Margin="20,0,0,0" FontSize="16" FontFamily="Arial"/>
+
+        </StackPanel>
+        
         <!---->
         <Border Background="White" Grid.Row="2">
             <ListView x:Name="WorkoutListView">
@@ -61,7 +68,6 @@
             <TextBlock Text="-OSCAR L." HorizontalAlignment="Center" Height="20" 
                    FontStyle="Italic" Foreground="Black" TextWrapping="Wrap"/>
         </Border>
-        
 
 
 

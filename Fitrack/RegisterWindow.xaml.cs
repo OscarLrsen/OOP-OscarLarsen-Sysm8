@@ -77,7 +77,7 @@ namespace Fitrack
                 ErrorComboBox.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            if (string.IsNullOrWhiteSpace(email))
             {
                 ErrorEmail.Visibility = Visibility.Visible;
                 isValid = false;
