@@ -72,7 +72,7 @@
 
             <Border  Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock x:Name="EmailPlacer" Text=" Email Adress*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                    <TextBlock x:Name="EmailPlacer" Text=" UserName*"  FontFamily="Arial" VerticalAlignment="Center" Margin="2"
                                IsHitTestVisible="False"/>
                     <TextBox x:Name="Email" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
                          Background="Transparent" BorderBrush="Transparent" BorderThickness="0"

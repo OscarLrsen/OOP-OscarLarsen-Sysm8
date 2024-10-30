@@ -16,12 +16,29 @@ namespace Fitrack.Class
             users = new List<User>
             {
                 new User("admin", "“password", true)
+                new User("user", "password")
+
             };
 
         }
         public User Authenticate(string email, string password)
         {
             return users.FirstOrDefault(u => u.Email == email && u.Password == password);
+        }
+
+        public bool IsAdminEmail(string email)
+        {
+            return users.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && u.Admin);
+        }
+
+        public void AddUser(User user)
+        {
+            users.Add(user);    
+        }
+
+        public List<User> GetUsers()
+        {
+            return users;
         }
     }
 }

@@ -7,6 +7,132 @@
         mc:Ignorable="d"
         Title="Workouts_Window" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <!--Fittrack logobar-->
+            <RowDefinition Height="16*" />
+            <!--Info Bar-->
+            <RowDefinition Height="08*"/>
+            <!--Picture Bar-->
+            <RowDefinition Height="58*"/>
+            <!--Review Bar-->
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+        <!--Grid 0 med Fittrack logo-->
+        <Border Background="#D3D3D3" Grid.Row="0">
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" HorizontalAlignment="Center" Margin="0,-57,0,6" Width="282" />
+        </Border>
+        <!--Info Border-->
+        <Border Background="#DC143C" Grid.Row="1"/>
+        <!---->
+        <Border Background="White" Grid.Row="2">
+            <ListView x:Name="WorkoutListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="150"/>
+                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding WorkoutType}" Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="5">
+            <Button Content="Details" Width="80"  Click="DetailsButton_Click" Grid.Row="2"/>
+
+            <Button Content="Remove" Width="80"  Grid.Row="2" />
+            <Button Content="Add Workout" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Width="100" />
+        </StackPanel>
+
+        <!--Review Border-->
+        <Border Background="#D3D3D3" Grid.Row="3"/>
+
+        <!--Review Text-->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="“FitTrack's training programs have completely changed how I look and feel.”" 
+               FontStyle="Italic" Foreground="Black" TextWrapping="Wrap" />
+        </StackPanel>
+        <!--Streck mellan namn och text-->
+        <Rectangle Margin="640,0,155,0" Width="1" Height="50" Grid.Row="3" Fill="Black" />
+
+        <!--Border för att centrera review namnet-->
+        <Border Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Height="69" Width="156">
+            <TextBlock Text="-OSCAR L." HorizontalAlignment="Center" Height="20" 
+                   FontStyle="Italic" Foreground="Black" TextWrapping="Wrap"/>
+        </Border>
+
+        <!--StackPanel för log in och Sign in knapp-->
+        <StackPanel x:Name="StackPanelLogIn" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+            <!--Login in knapp-->
+            <Button x:Name="LogInButton"  Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontWeight" Value="Normal"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Button.IsMouseOver" Value="True">
+                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Sign in knapp-->
+            <Button x:Name="SignInButton" Width="70" Height="25" Margin="5" Background="Transparent" BorderBrush="Transparent" 
+                Cursor="Hand" Click="RegisterWindow">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="Sign In" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextDecorations" Value="None"/>
+                                    <Setter Property="FontWeight" Value="Normal"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Button.IsMouseOver" Value="True">
+                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <Button x:Name="UserNameButton" Width="150" Height="25" Margin="5" Background="Transparent" 
+                BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                Cursor="Hand" Click="UserName_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextDecorations" Value="None"/>
+                                    <Setter Property="FontWeight" Value="Normal"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Button.IsMouseOver" Value="True">
+                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+
+
     </Grid>
 </Window>

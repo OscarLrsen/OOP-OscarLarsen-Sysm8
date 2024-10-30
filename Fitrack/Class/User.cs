@@ -22,6 +22,6 @@ namespace Fitrack
             Admin = admin;
         }
 
-
     }
+    
 }

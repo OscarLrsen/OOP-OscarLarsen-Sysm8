@@ -63,14 +63,12 @@ namespace Fitrack
         {
             if (PasswordHolder.Visibility == Visibility.Visible)
             {
-                // Visa TextBox och kopiera lösenordet till den
                 VisiblePasswordBox.Text = PasswordHolder.Password;
                 PasswordHolder.Visibility = Visibility.Collapsed;
                 VisiblePasswordBox.Visibility = Visibility.Visible;
             }
             else
             {
-                // Visa PasswordBox och kopiera tillbaka lösenordet till den
                 PasswordHolder.Password = VisiblePasswordBox.Text;
                 VisiblePasswordBox.Visibility = Visibility.Collapsed;
                 PasswordHolder.Visibility = Visibility.Visible;
