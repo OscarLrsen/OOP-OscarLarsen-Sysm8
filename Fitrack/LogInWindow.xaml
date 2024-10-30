@@ -129,7 +129,7 @@
 
         <Border Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" >
             <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" Height="136" Width="267" MouseDown="ImageMainWindow"
-                   Cursor="Hand"/>
+                   Cursor="Hand" />
         </Border>
     </Grid>
 </Window>

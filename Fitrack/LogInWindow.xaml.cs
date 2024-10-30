@@ -83,7 +83,7 @@ namespace Fitrack
             Fitrack.Class.Admin admin = new Fitrack.Class.Admin();
             User user = admin.Authenticate(email, password);
 
-            if (user != null && user.Admin) 
+            if (user != null && user.Admin && user.user) 
             {
                 Workouts_Window workouts_Window = new Workouts_Window();
                 workouts_Window.Show();
@@ -110,5 +110,7 @@ namespace Fitrack
             mainWindow.Show();
             this.Close();
         }
+
+
     }
 }

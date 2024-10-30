@@ -15,7 +15,7 @@ namespace Fitrack.Class
         {
             users = new List<User>
             {
-                new User("admin", "“password", true)
+                new User("admin", "password", true),
                 new User("user", "password")
 
             };
