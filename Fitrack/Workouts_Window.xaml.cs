@@ -22,9 +22,18 @@ namespace Fitrack
 
         private User loggedInUser;
 
-        public Workouts_Window()
+        public Workouts_Window(User user)
         {
             InitializeComponent();
+            loggedInUser = user;
+            UpdateUserInfo();
+            LoadWorkouts();
+        }
+
+        private void LoadWorkouts()
+        {
+            WorkoutListView.ItemsSource = null;
+            WorkoutListView.ItemsSource = loggedInUser.Workouts;
         }
 
         private void UserNameButton_Click(object sender, RoutedEventArgs e)
@@ -36,18 +45,56 @@ namespace Fitrack
             if (loggedInUser != null)
             {
                 // Sätt för- och efternamnet som knapptext eller annan plats i gränssnittet
-                UserNameButton.Content = $"{loggedInUser.FirstName} {loggedInUser.LastName}";
+                UserNameText.Text = $"{loggedInUser.FirstName} {loggedInUser.LastName}";
 
                 // Visa användarens information i gränssnittet
-                UserNameButton.Visibility = Visibility.Visible;
+                UserNameText.Visibility = Visibility.Visible;
             }
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(loggedInUser);
             mainWindow.Show();
             this.Close();
+        }
+
+        private void UserDetailsButton(object sender, RoutedEventArgs e)
+        {
+            UserDetailsWindow userDetailsWindow = new UserDetailsWindow(loggedInUser);
+            userDetailsWindow.Show();
+        }
+
+        private void OpenAddWorkoutWindow(object sender, RoutedEventArgs e)
+        {
+            AddWorkoutWindow addWorkoutWindow = new AddWorkoutWindow(loggedInUser);
+            addWorkoutWindow.Show();
+        }
+
+        private void RemoveWorkout(object sender, RoutedEventArgs e)
+        {
+            if (WorkoutListView.SelectedItem is Class.Admin.Workout selectedWorkout)
+            {
+                loggedInUser.Workouts.Remove(selectedWorkout);
+                LoadWorkouts();
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to remove.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void ShowWorkoutDetails(object sender, RoutedEventArgs e)
+        {
+            if (WorkoutListView.SelectedItem is Class.Admin.Workout selectedWorkout)
+            {
+                WorkoutDetailsWindow workoutDetailsWindow = new WorkoutDetailsWindow(selectedWorkout);
+                workoutDetailsWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to view details.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

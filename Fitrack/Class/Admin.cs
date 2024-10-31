@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fitrack.Class
 {
-    class Admin
+    public class Admin
     {
         private List <User> users;
 
@@ -19,6 +19,12 @@ namespace Fitrack.Class
                 new User("user", "password")
 
             };
+            var user = users.FirstOrDefault(u => u.Email == "user");
+            if (user != null)
+            {
+                user.Workouts.Add(new Workout(DateTime.Now.AddDays(1), "Chest"));
+                user.Workouts.Add(new Workout(DateTime.Now.AddDays(3), "Back"));
+            }
 
         }
         public User Authenticate(string email, string password)
@@ -40,5 +46,20 @@ namespace Fitrack.Class
         {
             return users;
         }
+
+        public class Workout
+        {
+            public DateTime Date { get; set; }
+            public string WorkoutType { get; set; }
+
+            public Workout(DateTime date, string workoutType)
+            {
+                Date = date;
+                WorkoutType = workoutType;
+            }
+
+        }
+
+
     }
 }

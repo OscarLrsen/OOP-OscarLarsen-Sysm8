@@ -44,6 +44,8 @@ namespace Fitrack
                 LogInButton.Visibility = Visibility.Collapsed;
                 SignInButton.Visibility = Visibility.Collapsed;
 
+                //Visa workouts knappen i gränssnittet
+                WorkoutWindow.Visibility = Visibility.Visible;
                 // Visa användarens information i gränssnittet
                 UserNameButton.Visibility = Visibility.Visible;
             }
