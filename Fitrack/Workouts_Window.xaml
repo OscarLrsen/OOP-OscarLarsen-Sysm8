@@ -21,7 +21,7 @@
 
         <!--Grid 0 med Fittrack logo-->
         <Border Background="#D3D3D3" Grid.Row="0">
-            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" HorizontalAlignment="Center" Margin="0,-57,0,6" Width="282" />
+            <Image Source="/Bilder/Fittrack_LOGO-removebg-preview.png" HorizontalAlignment="Center" Margin="0,-57,0,6" Width="282" MouseDown="Image_MouseDown" />
         </Border>
         <!--Info Border-->
         <Border Background="#DC143C" Grid.Row="1"/>
@@ -69,7 +69,13 @@
                    FontStyle="Italic" Foreground="Black" TextWrapping="Wrap"/>
         </Border>
 
-
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <Button x:Name="UserNameButton"  Width="150" Height="25" Margin="5" Background="Transparent" 
+                    BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Cursor="Hand" Visibility="Hidden" Click="UserNameButton_Click">
+                <TextBlock Text="{Binding Content, ElementName=UserNameButton}" FontFamily="Arial"/>
+            </Button>
+        </StackPanel>
 
     </Grid>
 </Window>

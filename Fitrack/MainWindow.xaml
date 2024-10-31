@@ -91,11 +91,13 @@
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
             <Button x:Name="UserNameButton"  Width="150" Height="25" Margin="5" Background="Transparent" 
-                    BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" 
-                    Cursor="Hand" Visibility="Hidden" Click="UserName_Click">
+                    BorderBrush="Transparent" Cursor="Hand"  Click="UserName_Click" Visibility="Hidden">
                 <TextBlock Text="{Binding Content, ElementName=UserNameButton}" FontFamily="Arial"/>
             </Button>
-            </StackPanel>
+            
+            <Button x:Name="WorkoutWindow" Width="100" Height="25" Margin="5" Content="Workouts" Background="Transparent" BorderBrush="Transparent" Click="WorkoutWindow_Click"/>
+
+        </StackPanel>
 
 
     </Grid>

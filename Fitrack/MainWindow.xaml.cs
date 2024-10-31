@@ -68,5 +68,11 @@ namespace Fitrack
 
         }
 
+        private void WorkoutWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Workouts_Window workouts_Window = new Workouts_Window();
+            workouts_Window.Show();
+            this.Close();
+        }
     }
 }

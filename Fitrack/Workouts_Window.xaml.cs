@@ -19,11 +19,35 @@ namespace Fitrack
     /// </summary>
     public partial class Workouts_Window : Window
     {
+
+        private User loggedInUser;
+
         public Workouts_Window()
         {
             InitializeComponent();
         }
 
+        private void UserNameButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void UpdateUserInfo()
+        {
+            if (loggedInUser != null)
+            {
+                // Sätt för- och efternamnet som knapptext eller annan plats i gränssnittet
+                UserNameButton.Content = $"{loggedInUser.FirstName} {loggedInUser.LastName}";
+
+                // Visa användarens information i gränssnittet
+                UserNameButton.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
