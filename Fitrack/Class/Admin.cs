@@ -47,6 +47,7 @@ namespace Fitrack.Class
             return users;
         }
 
+            return users.SelectMany(u => u.Workouts).ToList();
         public class Workout
         {
             public DateTime Date { get; set; }
