@@ -21,6 +21,8 @@ namespace Fitrack
     public partial class AddWorkoutWindow : Window
     {
         private User user;
+        private User loggedInUser;
+
         public AddWorkoutWindow(User loggedInUser)
         {
             InitializeComponent();
@@ -29,6 +31,13 @@ namespace Fitrack
         private void AddWorkout(string workoutType, DateTime date)
         {
             user.Workouts.Add(new Admin.Workout(date, workoutType));
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(loggedInUser);
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

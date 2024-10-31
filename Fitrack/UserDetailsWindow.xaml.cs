@@ -21,11 +21,21 @@ namespace Fitrack
     public partial class UserDetailsWindow : Window
     {
         private User user;
+        private User loggedInUser;
+
 
         public UserDetailsWindow(User loggedInUser)
         {
             InitializeComponent();
             user = loggedInUser;
         }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(loggedInUser);
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
+

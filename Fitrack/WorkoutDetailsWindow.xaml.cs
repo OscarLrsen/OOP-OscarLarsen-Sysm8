@@ -21,6 +21,8 @@ namespace Fitrack
     public partial class WorkoutDetailsWindow : Window
     {
         private Admin.Workout workout;
+        private User loggedInUser;
+
 
         public WorkoutDetailsWindow(Admin.Workout selectedWorkout)
         {
@@ -32,6 +34,13 @@ namespace Fitrack
         private void DisplayWorkoutDetails()
         {
 
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(loggedInUser);
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

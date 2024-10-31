@@ -30,9 +30,9 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
             <TextBlock x:Name="UserNameText" Text="{Binding UserName}" Width="100" Margin="5" FontSize="16" FontFamily="Arial"/>
             <Button x:Name="UserButton" Content="User" Margin="5" Click="UserDetailsButton" Background="Transparent" BorderBrush="Transparent"/>
-            <Button x:Name="InfoButton" Content="Info" Margin="5" Click="ShowInfo" Background="Transparent" BorderBrush="Transparent"/>
+            <Button x:Name="InfoButton" Content="Info" Margin="5" Click="InfoButton_Click" Background="Transparent" BorderBrush="Transparent"/>
 
-            <Button x:Name="SignOutButton" Content="Sign Out" Margin="5" Click="UserDetailsButton" Background="Transparent" BorderBrush="Transparent"/>
+            <Button x:Name="SignOutButton" Content="Sign Out" Margin="5" Click="SignOut_Click" Background="Transparent" BorderBrush="Transparent"/>
 
 
 

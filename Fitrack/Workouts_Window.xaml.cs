@@ -35,11 +35,6 @@ namespace Fitrack
             WorkoutListView.ItemsSource = null;
             WorkoutListView.ItemsSource = loggedInUser.Workouts;
         }
-
-        private void UserNameButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void UpdateUserInfo()
         {
             if (loggedInUser != null)
@@ -96,5 +91,19 @@ namespace Fitrack
                 MessageBox.Show("Please select a workout to view details.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void SignOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+                MessageBox.Show("FitTrack helps you not get fat.", 
+                    "FitTrack Info", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
+
 }
