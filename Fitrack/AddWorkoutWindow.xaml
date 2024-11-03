@@ -28,6 +28,50 @@
 
         <!--Review Border-->
         <Border Background="#D3D3D3" Grid.Row="3"/>
+        
+        <!--AddWorkout Grid-->
+        <Border Grid.Row="2" Margin="30" BorderBrush="Black" BorderThickness="1"/>
+        <Grid Grid.Row="2" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Datum-->
+            <TextBlock Text="Datum (yyyy-MM-dd):" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+            <DatePicker x:Name="DatePicker" Grid.Row="0" Grid.Column="1" IsEnabled="False"/>
+
+            <!--Typ av träning-->
+            <TextBlock Text="Typ av träning:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="TypeTextBox" Grid.Row="1" Grid.Column="1" IsReadOnly="True"/>
+
+
+            <!--Varaktighet-->
+            <TextBlock Text="Varaktighet (min):" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="DurationTextBox" Grid.Row="2" Grid.Column="1" IsReadOnly="True"/>
+
+            <!--Anteckningar-->
+            <TextBlock Text="Anteckningar:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top"/>
+            <TextBox x:Name="NotesTextBox" Grid.Row="3" Grid.Column="1" IsReadOnly="True"/>
+        </Grid>
+
+
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="5">
+            <Button x:Name="EditButton" Content="Edit" Width="80" Click="EditButton_Click"/>
+            <Button x:Name="SaveButton" Content="Save" Width="80" Margin="10,0,0,0" Click="SaveButton_Click"/>
+        </StackPanel>
+
+
+        <!--Användare info-->
+
+
 
         <!--Review Text-->
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

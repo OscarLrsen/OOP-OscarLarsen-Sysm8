@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fitrack.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace Fitrack
 
         private void LoadWorkouts()
         {
+            Console.WriteLine("Antal träningspass: " + loggedInUser.Workouts.Count);
             WorkoutListView.ItemsSource = null;
             WorkoutListView.ItemsSource = loggedInUser.Workouts;
         }
@@ -58,12 +60,15 @@ namespace Fitrack
         {
             UserDetailsWindow userDetailsWindow = new UserDetailsWindow(loggedInUser);
             userDetailsWindow.Show();
+            this.Close();
+
         }
 
         private void OpenAddWorkoutWindow(object sender, RoutedEventArgs e)
         {
             AddWorkoutWindow addWorkoutWindow = new AddWorkoutWindow(loggedInUser);
             addWorkoutWindow.Show();
+            this.Close();
         }
 
         private void RemoveWorkout(object sender, RoutedEventArgs e)
@@ -81,10 +86,12 @@ namespace Fitrack
 
         private void ShowWorkoutDetails(object sender, RoutedEventArgs e)
         {
+
             if (WorkoutListView.SelectedItem is Class.Admin.Workout selectedWorkout)
             {
-                WorkoutDetailsWindow workoutDetailsWindow = new WorkoutDetailsWindow(selectedWorkout);
+                WorkoutDetailsWindow workoutDetailsWindow = new WorkoutDetailsWindow(selectedWorkout, loggedInUser);
                 workoutDetailsWindow.Show();
+                this.Close();
             }
             else
             {

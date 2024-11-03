@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Fitrack.Class
 {
@@ -58,11 +59,29 @@ namespace Fitrack.Class
         {
             public DateTime Date { get; set; }
             public string WorkoutType { get; set; }
+            public int Duration { get; set; }
+            public string Notes { get; set; }
 
-            public Workout(DateTime date, string workoutType)
+            public Workout(DateTime date, string workoutType, int duration = 0, string notes = "")
             {
                 Date = date;
                 WorkoutType = workoutType;
+                Duration = duration;
+                Notes = notes;
+
+            }
+
+            public void UpdateWorkout(DateTime date, string workoutType, int duration, string notes)
+            {
+                Date = date;
+                WorkoutType = workoutType;
+                Duration = duration;
+                Notes = notes;
+            }
+
+            public override string ToString()
+            {
+                return $"{WorkoutType} on {Date.ToShortDateString()}, Duration: {Duration} mins.";
             }
 
         }

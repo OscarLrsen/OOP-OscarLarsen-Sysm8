@@ -20,20 +20,27 @@ namespace Fitrack
     /// </summary>
     public partial class WorkoutDetailsWindow : Window
     {
-        private Admin.Workout workout;
+        private User user;
         private User loggedInUser;
+        private Admin.Workout workout;
 
 
-        public WorkoutDetailsWindow(Admin.Workout selectedWorkout)
+
+
+        public WorkoutDetailsWindow(Admin.Workout workout, User loggedInUser)
         {
             InitializeComponent();
-            workout = selectedWorkout;
-            DisplayWorkoutDetails();
+            this.workout = workout;
+            this.loggedInUser = loggedInUser;
+            LoadWorkoutDetails();
         }
 
-        private void DisplayWorkoutDetails()
+        private void LoadWorkoutDetails()
         {
-
+            DatePicker.SelectedDate = workout.Date;
+            TypeTextBox.Text = workout.WorkoutType;
+            DurationTextBox.Text = workout.Duration.ToString(); 
+            NotesTextBox.Text = workout.Notes;
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,5 +49,34 @@ namespace Fitrack
             mainWindow.Show();
             this.Close();
         }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            DatePicker.IsEnabled = true;
+            TypeTextBox.IsReadOnly = false;
+            DurationTextBox.IsReadOnly = false;
+            NotesTextBox.IsReadOnly = false;  
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DatePicker.SelectedDate.HasValue && int.TryParse(DurationTextBox.Text, out int duration))
+            {
+                workout.Date = DatePicker.SelectedDate.Value;
+                workout.WorkoutType = TypeTextBox.Text;
+                workout.Duration = duration;
+                workout.Notes = NotesTextBox.Text;
+
+                // Öppna Workouts_Window och stäng nuvarande fönster
+                Workouts_Window workouts_Window = new Workouts_Window(loggedInUser);
+                workouts_Window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Vänligen fyll i alla fält korrekt.");
+            }
+        }
+
     }
 }

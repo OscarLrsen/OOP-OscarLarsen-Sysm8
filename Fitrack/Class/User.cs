@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Fitrack.Class.Admin;
 
 namespace Fitrack
 {
@@ -25,6 +26,9 @@ namespace Fitrack
             Workouts = new List<Admin.Workout>();
         }
 
+
+
+
     }
-    
+
 }
