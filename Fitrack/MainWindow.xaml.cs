@@ -19,8 +19,8 @@ namespace Fitrack
     public partial class MainWindow : Window
     {
 
-        private User loggedInUser;
-        private Admin admin = new Admin();
+        private User loggedInUser; //Användarens data
+        private Admin admin = new Admin(); //Instans av Admin klassen
 
 
         public MainWindow()
@@ -28,7 +28,8 @@ namespace Fitrack
             InitializeComponent();
         }
 
-        public MainWindow(User user)
+        public MainWindow(User user) // Konstruktor för inloggad användare
+
         {
             InitializeComponent();
             loggedInUser = user;
@@ -36,7 +37,8 @@ namespace Fitrack
 
         }
 
-        private void UpdateUserInfo()
+        private void UpdateUserInfo() // Uppdaterar gränssnittet med användarens information
+
         {
             if (loggedInUser != null)
             {
@@ -54,7 +56,7 @@ namespace Fitrack
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) 
         {
             LogInWindow logInWindow = new LogInWindow();
             logInWindow.Show();

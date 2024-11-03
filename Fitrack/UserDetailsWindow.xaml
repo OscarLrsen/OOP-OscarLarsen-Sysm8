@@ -44,7 +44,7 @@
         </Border>
 
 
-        <!-- ComboBox för land -->
+        <!-- TextBox för användarnamn -->
         <StackPanel Grid.Row="2" Orientation="Vertical">
             <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
@@ -54,6 +54,8 @@
                              Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
                 </Grid>
             </Border>
+
+            <!--ComboBox för land -->
 
             <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
@@ -67,6 +69,7 @@
                     
                 </Grid>
             </Border>
+            <!--Passwordbox för newpassword-->
             <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
                     <TextBlock Text="New Password*" FontFamily="Arial" VerticalAlignment="Center" Margin="2"
@@ -75,6 +78,7 @@
                                  BorderBrush="Transparent" BorderThickness="0"/>
                 </Grid>
             </Border>
+            <!--Passwordbox för confirm password-->
             <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
                 <Grid>
                     <TextBlock Text="Confirm Password*" FontFamily="Arial" VerticalAlignment="Center" Margin="2"
@@ -85,7 +89,7 @@
             </Border>
         </StackPanel>
 
-        <!-- Spara och Avbryt knappar -->
+        <!-- Spara knapp -->
         <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
             <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
                 Click="Save_Click">
@@ -111,6 +115,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <!-- Cancel knapp -->
             <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
                 Click="Cancel_Click">
                 <Button.Template>
@@ -136,9 +141,5 @@
                 </Button.Template>
             </Button>
         </StackPanel>
-
-
-
-
     </Grid>
 </Window>

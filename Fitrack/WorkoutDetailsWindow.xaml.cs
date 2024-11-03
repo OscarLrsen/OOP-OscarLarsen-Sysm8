@@ -1,4 +1,4 @@
-﻿using Fitrack.Class;
+﻿using Fitrack.Class; // Importerar nödvändiga namespaces för Admin och User klass
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +20,14 @@ namespace Fitrack
     /// </summary>
     public partial class WorkoutDetailsWindow : Window
     {
-        private User user;
-        private User loggedInUser;
-        private Admin.Workout workout;
+        private User user; //Användarens data 
+        private User loggedInUser; //Håller data om den inloggade
+        private Admin.Workout workout; //Håller data om träningspasset
 
 
 
 
-        public WorkoutDetailsWindow(Admin.Workout workout, User loggedInUser)
+        public WorkoutDetailsWindow(Admin.Workout workout, User loggedInUser) //Konstruktor som tar emot ett workout objekt
         {
             InitializeComponent();
             this.workout = workout;
@@ -35,7 +35,7 @@ namespace Fitrack
             LoadWorkoutDetails();
         }
 
-        private void LoadWorkoutDetails()
+        private void LoadWorkoutDetails() // Metod för att fylla in detaljerna för träningspasset i inputfält
         {
             DatePicker.SelectedDate = workout.Date;
             TypeTextBox.Text = workout.WorkoutType;
@@ -50,7 +50,7 @@ namespace Fitrack
             this.Close();
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e) //Click knapp för hantera edit funktionen
         {
             DatePicker.IsEnabled = true;
             TypeTextBox.IsReadOnly = false;
@@ -58,7 +58,7 @@ namespace Fitrack
             NotesTextBox.IsReadOnly = false;  
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e) //Hanterar saveknappen och sparar redigerad träningsdetaljer
         {
             if (DatePicker.SelectedDate.HasValue && int.TryParse(DurationTextBox.Text, out int duration))
             {

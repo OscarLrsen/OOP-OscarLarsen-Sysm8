@@ -1,4 +1,4 @@
-﻿using Fitrack.Class;
+﻿using Fitrack.Class; // Importerar nödvändiga namespaces för Admin och User klasser
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +22,13 @@ namespace Fitrack
     /// </summary>
     public partial class AddWorkoutWindow : Window
     {
-        private User user;
-        private User loggedInUser;
-        private Admin.Workout workout;
+        private User user; //Andvändar data 
+        private User loggedInUser; //Håller data 
+        private Admin.Workout workout; //Träningspass
 
 
 
-        public AddWorkoutWindow(User loggedInUser)
+        public AddWorkoutWindow(User loggedInUser) //Konstruktor 
         {
             InitializeComponent();
             user = loggedInUser;
@@ -44,7 +44,7 @@ namespace Fitrack
             this.Close();
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e) //Hanterar klick knappen edit. 
         {
             DatePicker.IsEnabled = true;
             TypeTextBox.IsReadOnly = false;
@@ -53,12 +53,12 @@ namespace Fitrack
             SaveButton.IsEnabled = true;
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e) //Sparar träningspass
         {
             if (DatePicker.SelectedDate.HasValue &&
                int.TryParse(DurationTextBox.Text, out int duration))
             {
-                var newWorkout = new Admin.Workout
+                var newWorkout = new Admin.Workout //Skapar ett nytt träningspass med ifylld data
                 (
                     date: DatePicker.SelectedDate.Value,
                     workoutType: TypeTextBox.Text,

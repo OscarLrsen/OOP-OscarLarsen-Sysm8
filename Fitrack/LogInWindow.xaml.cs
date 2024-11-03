@@ -25,10 +25,10 @@ namespace Fitrack
             InitializeComponent();
         }
 
-        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e) 
         {
             TextHolder.FontSize = 10;
-            TextHolder.Margin = new Thickness(5, -15, 35, 0);
+            TextHolder.Margin = new Thickness(5, -15, 35, 0);//Flyttar text i fältet så det ser bättre ut i layout
             ErrorPassword.Visibility = Visibility.Hidden;
 
         }
@@ -38,7 +38,7 @@ namespace Fitrack
             if (string.IsNullOrEmpty(PasswordHolder.Password))
             {
                 TextHolder.FontSize = 12;
-                TextHolder.Margin = new Thickness(5, 0, 35, 0);
+                TextHolder.Margin = new Thickness(5, 0, 35, 0);//Flyttar text i fältet så det ser bättre ut i layout
             }
         }
 
@@ -46,7 +46,7 @@ namespace Fitrack
         {
             EmailPlacer.FontSize = 10;
             EmailPlacer.Margin = new Thickness(5, -15, 35, 0);
-            ErrorEmail.Visibility = Visibility.Hidden;
+            ErrorEmail.Visibility = Visibility.Hidden;//Flyttar text i fältet så det ser bättre ut i layout
 
         }
 

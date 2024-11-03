@@ -26,7 +26,7 @@ namespace Fitrack
         private Admin admin;
 
 
-        public UserDetailsWindow(User loggedInUser, Admin admin)
+        public UserDetailsWindow(User loggedInUser, Admin admin) //konstruktorn
         {
             InitializeComponent();
             user = loggedInUser;
@@ -35,7 +35,8 @@ namespace Fitrack
             LoadUserDetails();
         }
 
-        private void LoadUserDetails()
+        private void LoadUserDetails()// Laddar och visar användarens detaljer i fälten
+
         {
             UsernameTextBox.Text = loggedInUser.Email;
             CountryBox.SelectedItem = CountryBox.Items.Cast<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == loggedInUser.CountryBox);
@@ -49,23 +50,26 @@ namespace Fitrack
             this.Close();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e) // Sparar ändringar
         {
             string newUsername = UsernameTextBox.Text;
             string newPassword = NewPasswordBox.Password;
             string confirmPassword = ConfirmPasswordBox.Password;
             string newCountry = (CountryBox.SelectedItem as ComboBoxItem)?.Content.ToString();
 
-            if (string.IsNullOrWhiteSpace(newUsername) || newUsername.Length < 3)
+            if (string.IsNullOrWhiteSpace(newUsername) || newUsername.Length < 3) //Minst 3 tecken
             {
                 MessageBox.Show("Användarnamnet måste vara minst 3 tecken långt.", "Error");
                 return;
             }
-            if (admin.GetUsers().Any(u => u.Email == newUsername && u != loggedInUser))
+            if (admin.GetUsers().Any(u => u.Email == newUsername && u != loggedInUser))// Kontrollera att användarnamnet inte redan används av någon annan användare
+
             {
                 MessageBox.Show("Användarnamnet är redan upptaget.", "Error");
                 return;
             }
+            
+            // Validering för lösenord - minst 5 tecken och matchande bekräftelselösenord
             if (!string.IsNullOrEmpty(newPassword) || !string.IsNullOrEmpty(confirmPassword) || newPassword.Length < 5)
             {
                 if (newPassword.Length < 5 && confirmPassword.Length < 5)
@@ -78,10 +82,10 @@ namespace Fitrack
                     MessageBox.Show("Lösenorden matchar inte.", "Varning");
                     return;
                 }
-                loggedInUser.Password = newPassword;
+                loggedInUser.Password = newPassword; //Uppdaterar lösenord
 
             }
-            loggedInUser.Email = newUsername;
+            loggedInUser.Email = newUsername; 
             loggedInUser.CountryBox = newCountry;
             MessageBox.Show("Användaruppgifterna har uppdaterats!", "Sparat");
 

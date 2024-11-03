@@ -33,9 +33,6 @@
             <Button x:Name="InfoButton" Content="Info" Margin="5" Click="InfoButton_Click" Background="Transparent" BorderBrush="Transparent"/>
 
             <Button x:Name="SignOutButton" Content="Sign Out" Margin="5" Click="SignOut_Click" Background="Transparent" BorderBrush="Transparent"/>
-
-
-
         </StackPanel>
         
         <!---->

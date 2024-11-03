@@ -1,4 +1,4 @@
-﻿using Fitrack.Class;
+﻿using Fitrack.Class;  //Importerar namespaces för Admin och User
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +21,10 @@ namespace Fitrack
     public partial class Workouts_Window : Window
     {
 
-        private User loggedInUser;
-        private Admin admin = new Admin();
+        private User loggedInUser; // Sparar användares data
+        private Admin admin = new Admin(); //Instans av admin klass
 
-        public Workouts_Window(User user)
+        public Workouts_Window(User user) // Konstruktor 
         {
             InitializeComponent();
             loggedInUser = user;
@@ -32,10 +32,10 @@ namespace Fitrack
             LoadWorkouts();
         }
 
-        private void LoadWorkouts()
+        private void LoadWorkouts() //Laddar träningspass till listan
         {
             Console.WriteLine("Antal träningspass: " + loggedInUser.Workouts.Count);
-            WorkoutListView.ItemsSource = null;
+            WorkoutListView.ItemsSource = null; //Tömmer listan 
             WorkoutListView.ItemsSource = loggedInUser.Workouts;
 
             if (loggedInUser.Admin)
@@ -49,7 +49,7 @@ namespace Fitrack
                 WorkoutListView.ItemsSource = loggedInUser.Workouts;
             }
         }
-        private void UpdateUserInfo()
+        private void UpdateUserInfo() // Uppdaterar layout till inloggads uppgifter
         {
             if (loggedInUser != null)
             {
@@ -83,7 +83,7 @@ namespace Fitrack
             this.Close();
         }
 
-        private void RemoveWorkout(object sender, RoutedEventArgs e)
+        private void RemoveWorkout(object sender, RoutedEventArgs e) //Tar bort träningspass
         {
             if (WorkoutListView.SelectedItem is Admin.Workout selectedWorkout)
             {
@@ -106,7 +106,7 @@ namespace Fitrack
         }
 
 
-        private void ShowWorkoutDetails(object sender, RoutedEventArgs e)
+        private void ShowWorkoutDetails(object sender, RoutedEventArgs e) // Öppnar WorkoutDetailsWindow med vald träningspass
         {
 
             if (WorkoutListView.SelectedItem is Admin.Workout selectedWorkout)
