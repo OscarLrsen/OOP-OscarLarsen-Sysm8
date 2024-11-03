@@ -44,6 +44,101 @@
         </Border>
 
 
+        <!-- ComboBox för land -->
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text="{Binding Email}" FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <TextBox x:Name="UsernameTextBox" FontFamily="Arial" VerticalAlignment="Bottom" Margin="2"
+                             Background="Transparent" BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+
+            <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <ComboBox x:Name="CountryBox" FontFamily="Arial" Background="Transparent" BorderBrush="Transparent">
+                        <ComboBoxItem Content="Sverige"/>
+                        <ComboBoxItem Content="Danmark"/>
+                        <ComboBoxItem Content="Norge"/>
+                    </ComboBox>
+                    <TextBlock Text="{Binding CountryComboBox}" FontFamily="Arial" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                       Margin="2" Width="50" IsHitTestVisible="False"/>
+                    
+                </Grid>
+            </Border>
+            <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text="New Password*" FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                               IsHitTestVisible="False"/>
+                    <PasswordBox x:Name="NewPasswordBox" Background="Transparent" FontFamily="Arial" 
+                                 BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+            <Border Margin="10" Height="30" Width="245" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Text="Confirm Password*" FontFamily="Arial" VerticalAlignment="Center" Margin="2"
+                       IsHitTestVisible="False"/>
+                    <PasswordBox x:Name="ConfirmPasswordBox" Background="Transparent" FontFamily="Arial" 
+                         BorderBrush="Transparent" BorderThickness="0"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <!-- Spara och Avbryt knappar -->
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
+                Click="Save_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="1">
+                            <TextBlock Text="Save" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Arial">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextDecorations" Value="None"/>
+                                        <Setter Property="FontWeight" Value="Normal"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Width="180" Height="30" Margin="5" Background="Crimson" BorderBrush="Black" Cursor="Hand" FontFamily="Arial" 
+                Click="Cancel_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="1">
+                            <TextBlock Text="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Arial">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextDecorations" Value="None"/>
+                                        <Setter Property="FontWeight" Value="Normal"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+
+
 
     </Grid>
 </Window>

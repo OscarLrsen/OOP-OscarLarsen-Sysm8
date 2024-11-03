@@ -22,6 +22,7 @@ namespace Fitrack
     {
 
         private User loggedInUser;
+        private Admin admin = new Admin();
 
         public Workouts_Window(User user)
         {
@@ -36,6 +37,17 @@ namespace Fitrack
             Console.WriteLine("Antal träningspass: " + loggedInUser.Workouts.Count);
             WorkoutListView.ItemsSource = null;
             WorkoutListView.ItemsSource = loggedInUser.Workouts;
+
+            if (loggedInUser.Admin)
+            {
+                // Om användaren är admin, ladda alla träningspass från alla användare
+                WorkoutListView.ItemsSource = admin.GetAllWorkouts();
+            }
+            else
+            {
+                // Om användaren inte är admin, ladda enbart densne egna träningspass
+                WorkoutListView.ItemsSource = loggedInUser.Workouts;
+            }
         }
         private void UpdateUserInfo()
         {
@@ -58,7 +70,7 @@ namespace Fitrack
 
         private void UserDetailsButton(object sender, RoutedEventArgs e)
         {
-            UserDetailsWindow userDetailsWindow = new UserDetailsWindow(loggedInUser);
+            UserDetailsWindow userDetailsWindow = new UserDetailsWindow(loggedInUser, admin);
             userDetailsWindow.Show();
             this.Close();
 
@@ -73,10 +85,19 @@ namespace Fitrack
 
         private void RemoveWorkout(object sender, RoutedEventArgs e)
         {
-            if (WorkoutListView.SelectedItem is Class.Admin.Workout selectedWorkout)
+            if (WorkoutListView.SelectedItem is Admin.Workout selectedWorkout)
             {
-                loggedInUser.Workouts.Remove(selectedWorkout);
-                LoadWorkouts();
+                if (loggedInUser.Admin)
+                {
+                    var ownerUser = admin.GetUsers().FirstOrDefault(u => u.Workouts.Contains(selectedWorkout));
+                    ownerUser?.Workouts.Remove(selectedWorkout);
+                }
+                else
+                {
+                    loggedInUser.Workouts.Remove(selectedWorkout);
+                }
+
+                LoadWorkouts();  
             }
             else
             {
@@ -84,10 +105,11 @@ namespace Fitrack
             }
         }
 
+
         private void ShowWorkoutDetails(object sender, RoutedEventArgs e)
         {
 
-            if (WorkoutListView.SelectedItem is Class.Admin.Workout selectedWorkout)
+            if (WorkoutListView.SelectedItem is Admin.Workout selectedWorkout)
             {
                 WorkoutDetailsWindow workoutDetailsWindow = new WorkoutDetailsWindow(selectedWorkout, loggedInUser);
                 workoutDetailsWindow.Show();

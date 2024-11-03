@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Fitrack.Class;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,8 @@ namespace Fitrack
     {
 
         private User loggedInUser;
+        private Admin admin = new Admin();
+
 
         public MainWindow()
         {
@@ -67,7 +70,9 @@ namespace Fitrack
 
         private void UserName_Click(object sender, RoutedEventArgs e)
         {
-
+            UserDetailsWindow userDetailsWindow = new UserDetailsWindow(loggedInUser, admin);
+            userDetailsWindow.Show();
+            this.Close();
         }
 
         private void WorkoutWindow_Click(object sender, RoutedEventArgs e)
